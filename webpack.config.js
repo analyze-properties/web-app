@@ -6,11 +6,17 @@ module.exports = (env, opts) => {
   const {mode} = opts
   const config = {
     entry: {
-      main: path.resolve(process.cwd(), 'src/main')
+      main: path.resolve(process.cwd(), 'src/main'),
+      'service-worker': path.resolve(process.cwd(), 'src/service-worker/main')
     },
     output: {
+      publicPath: '/',
       path: path.resolve(process.cwd(), 'dist'),
-      filename: '[name].[chunkhash].js'
+      filename: ({chunk}) => {
+        return chunk.name === 'service-worker'
+          ? '[name].js'
+          : '[name].[chunkhash].js'
+      }
     },
     devServer: {
       port: 3000,
