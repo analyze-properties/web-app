@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import router from './router'
+import './css/main.css'
 
 function mountApp() {
   const App = require('./components/app').default

@@ -6,8 +6,9 @@ module.exports = (env, opts) => {
   const {mode} = opts
   const config = {
     entry: {
-      main: path.resolve(process.cwd(), 'src/main'),
-      'service-worker': path.resolve(process.cwd(), 'src/service-worker/main')
+      main: path.resolve(process.cwd(), 'src/main')
+      // TODO: enabling this breaks HMR... why?
+      // 'service-worker': path.resolve(process.cwd(), 'src/service-worker/main')
     },
     output: {
       publicPath: '/',
@@ -34,6 +35,14 @@ module.exports = (env, opts) => {
               configFile: path.resolve(process.cwd(), '.babelrc')
             }
           }
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            {loader: 'css-loader', options: {importLoaders: 1}},
+            'postcss-loader'
+          ]
         }
       ]
     },
