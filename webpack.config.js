@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = (env, opts) => {
   const {mode} = opts
@@ -39,7 +40,7 @@ module.exports = (env, opts) => {
         {
           test: /\.css$/,
           use: [
-            'style-loader',
+            opts.hot ? 'style-loader' : MiniCssExtractPlugin.loader,
             {loader: 'css-loader', options: {importLoaders: 1}},
             'postcss-loader'
           ]
@@ -47,6 +48,9 @@ module.exports = (env, opts) => {
       ]
     },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: opts.hot ? '[name].css' : '[name].[chunkhash].css'
+      }),
       new HtmlWebpackPlugin({
         template: path.resolve(process.cwd(), 'src/index.html'),
         minify: {
