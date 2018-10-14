@@ -10,7 +10,7 @@ module.exports = (env, opts) => {
     },
     output: {
       path: path.resolve(process.cwd(), 'dist'),
-      filename: mode === 'production' ? '[name].js' : '[name].[chunkhash].js'
+      filename: '[name].[chunkhash].js'
     },
     devServer: {
       port: 3000,
@@ -34,7 +34,9 @@ module.exports = (env, opts) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.resolve(process.cwd(), 'src/index.html'),
-        minify: true
+        minify: {
+          collapseWhitespace: true
+        }
       })
     ]
   }
