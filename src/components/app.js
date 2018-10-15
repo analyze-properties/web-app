@@ -3,6 +3,7 @@ import {RouteProvider, Route} from 'react-router5'
 import HomeView from '../views/home'
 import LoginView from '../views/login'
 import NotFoundView from '../views/not-found'
+import AppLayout from './app-layout'
 
 class App extends React.Component {
   renderCurrentRoute({route}) {
@@ -19,7 +20,9 @@ class App extends React.Component {
   render() {
     return (
       <RouteProvider router={this.props.router}>
-        <Route>{this.renderCurrentRoute}</Route>
+        <AppLayout>
+          <Route>{this.renderCurrentRoute}</Route>
+        </AppLayout>
       </RouteProvider>
     )
   }

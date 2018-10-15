@@ -1,1 +1,31 @@
-@import '../../node_modules/normalize.css/normalize.css';
+nav {
+  background: #fff;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+body {
+  background: rgb(250, 250, 250);
+}
+
+.viewport {
+  display: flex;
+}
+
+.viewport__main,
+.viewport__rail {
+  padding: 1rem;
+  min-height: 500px; /* just for demoing */
+  background: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
+  border-radius: 5px;
+}
+
+.viewport__main {
+  flex-grow: 4;
+  margin-right: 2rem;
+}
+
+.viewport__rail {
+  flex-grow: 1;
+}
+

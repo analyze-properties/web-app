@@ -2,7 +2,12 @@ import React from 'react'
 
 class HomeView extends React.Component {
   render() {
-    return <h1>Sample Home View</h1>
+    return (
+      <React.Fragment>
+        <main className="viewport__main text-center" />
+        <aside className="viewport__rail" />
+      </React.Fragment>
+    )
   }
 }
 
