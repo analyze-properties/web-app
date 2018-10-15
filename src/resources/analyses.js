@@ -8,7 +8,8 @@ const MOCK_ANALYSES = _.times(5, id => ({
   rentValue: '$42,800',
   cashNeeded: '$42,800',
   NOI: '$11,174',
-  COC: '2.39',
+  COC: '26%',
+  GRM: '2.39',
   DSCR: '1',
   ROI: '61.949%'
 }))

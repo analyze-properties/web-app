@@ -1,37 +1,42 @@
-import _ from 'lodash-es'
 import React from 'react'
+import ReactTable from 'react-table'
 
 class AnalysesList extends React.Component {
+  columns = [
+    {
+      Header: 'Address',
+      accessor: 'address'
+    },
+    {
+      Header: 'Cash Flow',
+      accessor: 'cashFlow'
+    },
+    {
+      Header: 'Cap Rate',
+      accessor: 'capRate'
+    },
+    {
+      Header: 'Rent Value',
+      accessor: 'rentValue'
+    },
+    {
+      Header: 'Cash Needed',
+      accessor: 'cashNeeded'
+    },
+    {
+      Header: 'ROI',
+      accessor: 'ROI'
+    }
+  ]
+
   render() {
-    const {analyses} = this.props
     return (
-      <div>
-        <div className="d-flex justify-content-between">
-          <strong>Cash Flow</strong>
-          <strong>Cap Rate</strong>
-          <strong>Rent Value</strong>
-          <strong>Cash Needed</strong>
-          <strong>NOI</strong>
-          <strong>COC</strong>
-          <strong>DSCR</strong>
-          <strong>ROI</strong>
-        </div>
-        <hr />
-        <ul className="list-unstyled">
-          {_.map(analyses, property => (
-            <li className="d-flex justify-content-between" key={property.id}>
-              <span>{property.cashFlow}</span>
-              <span>{property.capRate}</span>
-              <span>{property.rentValue}</span>
-              <span>{property.cashNeeded}</span>
-              <span>{property.NOI}</span>
-              <span>{property.COC}</span>
-              <span>{property.DSCR}</span>
-              <span>{property.ROI}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ReactTable
+        data={this.props.analyses}
+        columns={this.columns}
+        showPagination={false}
+        minRows={0}
+      />
     )
   }
 }
