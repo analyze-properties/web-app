@@ -1,38 +1,33 @@
 import React from 'react'
+import router, {routes} from '../router'
 
-class AppNavbar extends React.Component {
-  handleSearch = e => {
-    e.preventDefault()
-  }
-
+class Nav extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light">
-        <div className="container">
-          <a className="navbar-brand" href="#">
-            Analyze Properties
-          </a>
-          <form
-            className="form-inline ml-auto my-2 my-lg-0"
-            onSubmit={this.handleSearch}
-          >
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              className="btn btn-outline-primary my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
-        </div>
+      <nav>
+        <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+          {routes.map(route => (
+            <li key={route.name} style={{display: 'inline-block'}}>
+              <a
+                style={{
+                  display: 'inline-block',
+                  padding: '1rem',
+                  cursor: 'pointer',
+                  ...(router.isActive(route.name) && {
+                    color: 'cornflowerblue',
+                    borderBottom: '2px solid cornflowerblue'
+                  })
+                }}
+                onClick={() => router.navigate(route.name)}
+              >
+                {route.name}
+              </a>
+            </li>
+          ))}
+        </ul>
       </nav>
     )
   }
 }
 
-export default AppNavbar
+export default Nav

@@ -1,10 +1,11 @@
 import createRouter from 'router5'
 import browserPlugin from 'router5/plugins/browser'
 
-const routes = [
+export const routes = [
   {name: 'home', path: '/'},
   {name: 'login', path: '/login'},
-  {name: 'profile', path: '/profile'}
+  {name: 'profile', path: '/profile'},
+  {name: 'calculator', path: '/calculator'}
 ]
 
 const router = createRouter(routes).usePlugin(browserPlugin())
