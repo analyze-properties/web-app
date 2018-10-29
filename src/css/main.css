@@ -16,7 +16,7 @@ body {
   padding: 1rem;
   min-height: 500px; /* just for demoing */
   background: #fff;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
   border-radius: 5px;
 }
 
@@ -29,3 +29,75 @@ body {
   flex-grow: 1;
 }
 
+/*
+ * Range Input
+ */
+input[type='range'] {
+  -webkit-appearance: none;
+  margin: 0.6em 0;
+  width: 100%;
+  height: 0.2em;
+  background: #E0E0E0;
+  border-radius: 999em;
+  outline: none;
+  cursor: pointer;
+}
+input[type='range']:focus,
+input[type='range']:hover {
+  background: cornflowerblue;
+}
+
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  transition: background-color 0.1s, box-shadow 0.1s, width 0.1s, height 0.1s, border-radius 0.1s;
+  width: 0.75em;
+  height: 0.75em;
+  background: #bbb;
+  border-radius: 999rem;
+}
+
+input[type='range']::-moz-range-thumb {
+  transition: background-color 0.1s, box-shadow 0.1s, width 0.1s, height 0.1s, border-radius 0.1s;
+  width: 0.75em;
+  height: 0.75em;
+  background: #bbb;
+  border-radius: 999rem;
+}
+
+input[type='range']:focus::-moz-range-thumb,
+input[type='range']:hover::-moz-range-thumb {
+  width: 1em;
+  height: 1em;
+  background: #eee;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(100, 149, 237, 0.3);
+}
+
+input[type='range']:focus::-webkit-slider-thumb,
+input[type='range']:hover::-webkit-slider-thumb {
+  width: 1em;
+  height: 1em;
+  background: #eee;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(100, 149, 237, 0.3);
+}
+
+/*
+ * Scrollbars
+ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  border: 1px solid white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
