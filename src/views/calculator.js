@@ -36,7 +36,7 @@ class Slider extends React.Component {
           min="0"
           max="1000000"
           defaultValue="0"
-          valu={value}
+          value={value}
           style={{
             gridArea: 'input'
           }}
